@@ -20,6 +20,7 @@
             transition: background-image 0.5s ease-in-out;
         }
         .card {
+            display: none;
             background-color: rgba(51, 51, 51, 0.9);
             padding: 2rem;
             border-radius: 8px;
@@ -29,6 +30,9 @@
             box-sizing: border-box;
             max-width: 90%;
             min-width: 280px;
+        }
+        .card.visible {
+            display: block;
         }
         .card h1 {
             margin-top: 0;
@@ -64,7 +68,7 @@
     </style>
 </head>
 <body>
-    <div class="card">
+    <div class="card" id="infoCard">
         <h1>samu.lol</h1>
         <a href="https://www.last.fm/user/the144reasons">Last.fm</a>
         <a href="https://discord.com/users/702973430449832038">Discord</a>
@@ -87,9 +91,25 @@
             document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${selectedGif}')`;
         }
 
+        function checkURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const showCard = urlParams.get('card');
+            const card = document.getElementById('infoCard');
+            
+            if (showCard === 'false') {
+                card.classList.remove('visible');
+            } else {
+                card.classList.add('visible');
+            }
+        }
+
         setRandomBackground();
 
+        checkURLParams();
+
         setInterval(setRandomBackground, 20000);
+
+        window.addEventListener('popstate', checkURLParams);
     </script>
 </body>
 </html>
