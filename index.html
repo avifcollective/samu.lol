@@ -75,26 +75,21 @@
     </div>
 
     <script>
-        // Array of background GIF URLs
         const backgroundGifs = [
             'https://github.com/avifcollective/samu.lol/blob/main/assets/bg1.gif?raw=true',
-            // Add more GIF URLs here
             'https://github.com/avifcollective/samu.lol/blob/main/assets/bg2.gif?raw=true',
             'https://github.com/avifcollective/samu.lol/blob/main/assets/bg3.gif?raw=true'
         ];
 
-        // Function to set random background
         function setRandomBackground() {
             const randomIndex = Math.floor(Math.random() * backgroundGifs.length);
             const selectedGif = backgroundGifs[randomIndex];
             document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${selectedGif}')`;
         }
 
-        // Set initial background
         setRandomBackground();
 
-        // Optional: Change background periodically (every 10 seconds)
-        // setInterval(setRandomBackground, 10000);
+        setInterval(setRandomBackground, 20000);
     </script>
 </body>
 </html>
