@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Items</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://github.com/avifcollective/samu.lol/blob/main/assets/bg1.gif?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 767px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background-color: rgba(51, 51, 51, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #e9e9e9;
+        }
+
+        .card a {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #7395dd;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .card a:last-child {
+            margin-bottom: 0;
+        }
+
+        .card a:hover {
+            color: #4671cf;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="https://i.ebayimg.com/images/g/j-EAAOSwr8RnM1IX/s-l1600.jpg" alt="Item 1 Image">
+        <div class="card-content">
+            <h2>Sony Handycam DCR-DVD105</h2>
+            <a href="https://www.ebay.es/itm/196811834764">Ebay</a>
+            <a href="https://es.wallapop.com/item/sony-handycam-dcr-dvd105-probado-sin-bateria-1069355812">WallaPop</a>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://github.com/avifcollective/samu.lol/blob/main/assets/bg2.gif?raw=true" alt="Item 2 Image">
+        <div class="card-content">
+            <h2>Item 2</h2>
+            <a href="https://www.ebay.es/usr/samu.lol">Ebay</a>
+            <a href="https://es.wallapop.com/user/samuell-460275791">WallaPop</a>
+        </div>
+    </div>
+
+    <script>
+        const backgroundGifs = [
+            'https://github.com/avifcollective/samu.lol/blob/main/assets/bg1.gif?raw=true',
+            'https://github.com/avifcollective/samu.lol/blob/main/assets/bg2.gif?raw=true',
+            'https://github.com/avifcollective/samu.lol/blob/main/assets/bg3.gif?raw=true'
+        ];
+
+        function setRandomBackground() {
+            const randomIndex = Math.floor(Math.random() * backgroundGifs.length);
+            const selectedGif = backgroundGifs[randomIndex];
+            document.documentElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${selectedGif}')`;
+        }
+
+        function checkURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const showCard = urlParams.get('card');
+            const card = document.getElementById('infoCard');
+
+            if (showCard === 'false') {
+                card.classList.remove('visible');
+            } else {
+                card.classList.add('visible');
+            }
+        }
+
+        setRandomBackground();
+        checkURLParams();
+        setInterval(setRandomBackground, 20000);
+        window.addEventListener('popstate', checkURLParams);
+    </script>
+</body>
+
+</html>
