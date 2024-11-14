@@ -19,7 +19,26 @@
             transition: background-image 0.5s ease-in-out;
         }
 
-        body {
+        .home-link {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: #7395dd;
+            cursor: pointer;
+        }
+
+        .home-link a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .home-link a:hover {
+            color: #4671cf;
+            text-decoration: underline;
+        }
+
+        .cards {
             font-family: 'Poppins', sans-serif;
             display: grid;
             justify-content: center;
@@ -83,6 +102,12 @@
 </head>
 
 <body>
+    <div class="home-link">
+        <a href="index.html">Return to Home Page</a>
+    </div>
+
+    <div class="cards">
+
     <div class="card">
         <img src="https://i.ebayimg.com/images/g/j-EAAOSwr8RnM1IX/s-l1600.jpg" alt="Item 1 Image">
         <div class="card-content">
@@ -98,6 +123,12 @@
             <a href="https://www.ebay.es/itm/196811955328">Ebay</a>
             <a href="https://es.wallapop.com/item/sony-cybershot-dsc-p32-1069629349">WallaPop</a>
         </div>
+    </div>
+
+</div>
+
+    <div class="home-link">
+        <a href="index.html">Return to Home Page</a>
     </div>
 
     <script>
