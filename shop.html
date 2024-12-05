@@ -98,14 +98,6 @@
             color: #4671cf;
             text-decoration: underline;
         }
-
-        .card p {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #abc3f5;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
     </style>
 </head>
 
@@ -115,17 +107,16 @@
     </div>
 
     <div class="cards">
-
-    <div class="card">
-<!--         <img src="https://i.ebayimg.com/images/g/AcwAAOSw8XVnNiIF/s-l1600.jpg" alt="Item 2 Image"> -->
-        <div class="card-content">
-            <h2>Nothing here... For now</h2>
-            <p>In the meanwhile, save up a little bit of capital for a new camera for Christmas ;))</p>
-<!--             <a href="https://es.wallapop.com/item/sony-cybershot-dsc-p32-1069629349">WallaPop</a> -->
+        <div class="card">
+            <img src="https://github.com/avifcollective/my-cameras/blob/main/Canon%20DIGITAL%20IXUS%2075/IMG_4094.JPG?raw=true" alt="Item 2 Image">
+            <div class="card-content">
+                <h2>Nothing else left :/</h2>
+                <p>Maybe check out a list of all my previous cameras!</p>
+                <a href="https://github.com/avifcollective/my-cameras">Click me!</a>
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
     <div class="home-link">
         <a href="index.html">Return to Home Page</a>
@@ -144,20 +135,7 @@
             document.documentElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('${selectedGif}')`;
         }
 
-        function checkURLParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const showCard = urlParams.get('card');
-            const card = document.getElementById('infoCard');
-
-            if (showCard === 'false') {
-                card.classList.remove('visible');
-            } else {
-                card.classList.add('visible');
-            }
-        }
-
         setRandomBackground();
-        checkURLParams();
         setInterval(setRandomBackground, 20000);
         window.addEventListener('popstate', checkURLParams);
     </script>

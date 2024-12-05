@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
             overflow: hidden;
             transition: background-image 0.5s ease-in-out;
         }
+
         .card {
             display: none;
             background-color: rgba(51, 51, 51, 0.9);
@@ -31,14 +33,17 @@
             max-width: 90%;
             min-width: 280px;
         }
+
         .card.visible {
             display: block;
         }
+
         .card h1 {
             margin-top: 0;
             margin-bottom: 1.5rem;
             color: #e9e9e9;
         }
+
         .card a {
             display: block;
             margin-bottom: 1rem;
@@ -46,27 +51,33 @@
             text-decoration: none;
             transition: color 0.2s ease;
         }
+
         .card a:last-child {
             margin-bottom: 0;
         }
+
         .card a:hover {
             color: #4671cf;
             text-decoration: underline;
         }
+
         @media (max-width: 480px) {
             .card {
                 width: 90%;
                 padding: 1.5rem;
             }
+
             .card h1 {
                 font-size: 1.5rem;
             }
+
             .card a {
                 font-size: 0.9rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="card" id="infoCard">
         <h1>samu.lol</h1>
@@ -75,9 +86,8 @@
         <a href="https://www.instagram.com/avifcollective/">Instagram</a>
         <a href="https://www.youtube.com/@avifcollective">YouTube</a>
         <a href="https://open.spotify.com/playlist/3Pwe4ieMviuyaNamn2h2yh">Spotify Playlist</a>
+        <a href="https://github.com/avifcollective/my-cameras">All my cameras</a>
         <a href="/shop">Shop</a>
-        <iframe title="Discord user embed" width="340" height=72 frameborder="0" sandbox="allow-scripts"
-            src="https://widgets.vendicated.dev/user?id=702973430449832038&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"></iframe>
     </div>
 
     <script>
@@ -97,7 +107,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const showCard = urlParams.get('card');
             const card = document.getElementById('infoCard');
-            
+
             if (showCard === 'false') {
                 card.classList.remove('visible');
             } else {
@@ -114,4 +124,5 @@
         window.addEventListener('popstate', checkURLParams);
     </script>
 </body>
+
 </html>
